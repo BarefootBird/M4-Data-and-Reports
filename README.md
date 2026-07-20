@@ -3,6 +3,7 @@
 A repo to collect a bunch of information about m4 mechanics!
 
  - [Particles](/Particles/main.md)
+ - [Mob Spawns](/Mob%20Spawns/main.md)
 
 ---
 
