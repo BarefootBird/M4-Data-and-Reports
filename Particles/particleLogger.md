@@ -1,3 +1,5 @@
+Kotlin code added to birdaddon to log particles:
+
 ```
 package com.barefootbird.birdaddon.utils
 import com.barefootbird.birdaddon.mixin.SingleQuadParticleAccessorMixin
@@ -129,4 +131,48 @@ val particleCommand = Commodore("birdparticle") {
         ParticleLogger.stop()
     }
 }
+```
+
+Script to convert this format in to a 2d plot:
+
+```
+import clipboardy from "clipboardy";
+import fs from "fs";
+
+const clipboard = clipboardy.readSync()
+
+const points = JSON.parse(clipboard).events;
+
+const start = points[0];
+const end = points[points.length - 1];
+
+const dx = end.x - start.x;
+const dz = end.z - start.z;
+
+const length = Math.sqrt(dx * dx + dz * dz);
+
+const ux = dx / length;
+const uz = dz / length;
+
+let output = [];
+
+for (const p of points) {
+    const distance =
+        (p.x - start.x) * ux +
+        (p.z - start.z) * uz;
+
+    output.push({
+        distance: Number(distance.toFixed(4)),
+        y: Number(p.y.toFixed(4))
+    });
+}
+
+const table =
+    "distance\ty\n" +
+    output.map(p => `${p.distance}\t${p.y}`).join("\n");
+
+clipboardy.writeSync(table);
+
+console.log("Converted particle data → Desmos table copied!");
+console.log(`Converted ${output.length} points.`);
 ```
