@@ -63,6 +63,10 @@ data:
 | 70.03414154052734 |     70.03125 |
 |  70.0462875366211 |     70.03125 |
 
-From this data the it can be seen that bears spawn between 69.6875 and 70.03125 (69 + 22/32 to 69 + 33/32).
+# Conclusion
+
+From this data the it can be seen that bears spawn between 69.6875 and 70.03125 (69 + 22/32 to 69 + 33/32), however the real range may be larger than that due to the relatively small sample size
 
 The difference between the maximum lowest particle Y and the minimum lowest particle Y is ~0.35
+
+It would be possible to guess which particle is the final one by checking if the particle's Y value is within the observed range, however im not confident that this would be accurate
