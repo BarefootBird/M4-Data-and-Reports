@@ -18,9 +18,7 @@ Not started investigating
 Not started investigating
 
 ## Is the particle path deterministic
-Finished: [Results here](/Particles/)
-
-**Conclusion:** yes
+Not started investigating
 
 ## Figure out where the final particle will spawn
 [WIP](/Particles/finalParticle.md)
